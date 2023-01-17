@@ -16,7 +16,7 @@ export default () => {
                     <div className="row d-flex justify-content-center">
                         <div className="col-lg-8">
                             <h2 className="fw-bold mb-5">Sign up now</h2>
-                            <form method="post" action="/signup">
+                            <form method="post" action="/api/signup">
                                 <div className="row">
                                     <div className="col-md-6 mb-4">
                                         <div className="form-outline">
