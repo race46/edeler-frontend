@@ -28,11 +28,36 @@
   color: #61dafb;
 }
 
+body {
+  background: #f5f6fa;
+}
+
+.container-xl {
+  padding: 0;
+  background: #e7eafa;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+body {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+@media (max-width: 1080px) {
+  .container-xl {
+    margin: 0;
   }
 }
