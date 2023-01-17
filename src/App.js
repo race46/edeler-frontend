@@ -5,6 +5,7 @@ import Home from "./route/home";
 import Features from "./route/features";
 import Pricing from "./route/pricing";
 import Edit_profile from "./route/edit_profile";
+import Signup from "./route/signup";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Route path="/pricing" element={<Pricing/>}/>
           <Route path="/update" element={<Edit_profile/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/signup" element={<Login/>}/>
+          <Route path="/signup" element={<Signup/>}/>
           <Route path="/brute-force" element={<Login/>}/>
       </Routes>
   )

@@ -6,11 +6,6 @@ export default () => {
     const [disable, set_disable] = useState(false)
     const [hide, set_hide] = useState(true)
     const navigate = useNavigate()
-    useEffect(() => {
-        fetch('/api/me').then(r => {
-            if(r.status === 200) navigate('/')
-        })
-    }, [])
     const handle_login = (event) => {
         event.preventDefault()
         set_disable(true)
