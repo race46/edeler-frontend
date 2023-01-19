@@ -23,7 +23,7 @@ export default () => {
     return (
         <div className="container-xl">
             <Navbar></Navbar>
-            <div className="row mt-5">
+            <div className="row mt-3">
                 <div className="col-12">
                     <form action="/illusionist" method="post" onSubmit={e => handleSubmit(e)}>
                         <div className="card">
@@ -48,17 +48,18 @@ export default () => {
                                         <option hidden>Select coin and provider</option>
                                         {get_rs.map(rs => {
                                             return (
-                                                <option key={rs.pair + ' ' + rs.provider}
-                                                        value={rs.pair + ' ' + rs.provider}>{rs.pair + ' ' + rs.provider}</option>
+                                                <option key={rs}
+                                                        value={rs}>{rs}</option>
                                             )
                                         })}
                                     </select>
-
                                     <input required type="number" step="0.001"
                                            className="form-control w-25 m-1 mobile-first"
                                            placeholder="shrink percentage" name="shrink" min="0" max="1"/>
                                     <input required type="number" className="form-control w-25 m-1 mobile-first"
                                            step="0.01" min="10" placeholder="amount for one order" name="amount"/>
+                                    <input required type="number" className="form-control w-25 m-1 mobile-first"
+                                           step="1" min="1" placeholder="max count" name="max_count"/>
                                     <button disabled={get_enabled} type="submit"
                                             className="btn btn-danger m-1 w-25 mobile-first"
                                             id="illusionist-submit">Confirm

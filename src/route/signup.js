@@ -1,4 +1,24 @@
+import {useNavigate} from "react-router-dom";
+
+
 export default () => {
+    const navigate = useNavigate()
+    const submit = (event) => {
+        event.preventDefault()
+        const data = {}
+        for(let i = 0; i < 4; i++) data[event.target[i].name] = event.target[i].value
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        };
+        fetch('/api/signup', requestOptions).then(r => r.json()).then(r => {
+            if(r.success) navigate('/');
+            else alert("error")
+        })
+
+    }
+
     return (
         <section className="text-center">
             <div className="p-5 bg-image" style={{
@@ -16,7 +36,7 @@ export default () => {
                     <div className="row d-flex justify-content-center">
                         <div className="col-lg-8">
                             <h2 className="fw-bold mb-5">Sign up now</h2>
-                            <form method="post" action="/api/signup">
+                            <form method="post" action="/api/signup" onSubmit={submit}>
                                 <div className="row">
                                     <div className="col-md-6 mb-4">
                                         <div className="form-outline">
