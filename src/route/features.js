@@ -48,7 +48,7 @@ export default () => {
                                                 name="pair-provider"
                                                 onChange={e => set_enabled(false)}
                                         >
-                                            <option hidden>Select coin and provider</option>
+                                            <option hidden>Select coin</option>
                                             {get_rs.map(rs => {
                                                 return (
                                                     <option key={rs}
