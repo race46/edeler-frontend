@@ -60,4 +60,7 @@ body::-webkit-scrollbar {
   .container-xl {
     margin: 0;
   }
+  div.col-12 {
+    padding-right: 0;
+  }
 }
