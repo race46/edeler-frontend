@@ -1,4 +1,8 @@
+import {useNavigate} from "react-router-dom";
+import {hover} from "@testing-library/user-event/dist/hover";
+
 export default ({algo, ticker, remove, get_running, set_running}) => {
+    const navigate = useNavigate()
     const pr = algo.pair.replace('_','')
     let price = 1;//ticker.find(t => t.symbol === pr) || {price : '1'}
     // price = price.price
@@ -8,7 +12,7 @@ export default ({algo, ticker, remove, get_running, set_running}) => {
     const day = minute > 60 * 24 ? parseInt(minute / (60 * 24)) : ''
     algo.date = `${minute > 60 * 24 ? parseInt(minute / (60 * 24)) + 'd ' : ''}${parseInt(minute / 60) % 24}h ${parseInt(minute % 60)}m`
     return (
-        <tr className="d-flex justify-content-between">
+        <tr className="d-flex justify-content-between hoverke" onClick={e => {if(e.target.tagName !== 'BUTTON'){navigate('/illusionist/' + algo._id)}}} >
             <td>
                 <div className="d-flex align-items-center">
                     <img

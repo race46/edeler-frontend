@@ -6,6 +6,7 @@ import Features from "./route/features";
 import Pricing from "./route/pricing";
 import Edit_profile from "./route/edit_profile";
 import Signup from "./route/signup";
+import Illusionist from "./route/illusionist";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/brute-force" element={<Login/>}/>
+          <Route path="/illusionist/:id" element={<Illusionist/>}/>
       </Routes>
   )
 }
