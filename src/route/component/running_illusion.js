@@ -4,8 +4,8 @@ import {hover} from "@testing-library/user-event/dist/hover";
 export default ({algo, ticker, remove, get_running, set_running}) => {
     const navigate = useNavigate()
     const pr = algo.pair.replace('_','')
-    let price = 1;//ticker.find(t => t.symbol === pr) || {price : '1'}
-    // price = price.price
+    let price = ticker.find(t => t.symbol === pr) || {price : '1'}
+    price = price.price
     algo.profit = (algo.coin_profit * price + algo.usd_profit).toFixed(2)
     algo.date = Date.now() / 1000 - parseInt(algo._id.substring(0, 8), 16)
     const minute = parseInt(algo.date / 60)
