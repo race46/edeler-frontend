@@ -22,6 +22,12 @@ function calculateProfit(order, price, algo) {
     return <span style={{color: rate>0?'green': 'red'}}>%{rate} </span>
 }
 
+function getImageUrl(algo){
+    if(!algo || !algo.pair) return ''
+    const pair = JSON.parse(localStorage.getItem('account')).balances.find(b => b.asset + 'USDT' === algo.pair)
+    if(!pair) return ''
+    return pair.image
+}
 function getFixedSelling(buying, selling) {
     const b = buying.toString()
     if (!b.includes(".")) return selling.toFixed(0)
@@ -36,7 +42,7 @@ function getRow(algo) {
                 <td>
                     <div className="d-flex align-items-center">
                         <img
-                            src='https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/128/binance-coin.png'
+                            src={getImageUrl(algo)}
                             className="rounded-circle"
                             alt=""
                             style={{width: "45px", height: "45px"}}
