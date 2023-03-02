@@ -73,6 +73,7 @@ export default () => {
         fetch('/api/illusionist/' + id).then(r => r.json()).then(r => {
             const min = Math.ceil((Date.now() - (parseInt(r._id.substring(0, 8), 16) * 1000)) / 1000 / 60)
             r.date = `${Math.floor(min / 60 / 24)}d ${Math.floor(min / 60) % 24}h ${min % 60}m`
+            document.querySelectorAll('input')[1].value = r.max_count
             set_algo(r)
         })
     }, [])
@@ -96,6 +97,11 @@ export default () => {
                                     <h4 className="m-3">{algo.pair} ${algo.amount}</h4>
                                     <h6 className="mx-3">ILLUSIONIST Algorithm</h6>
                                 </div>
+                                <div style={{height:"100%"}} className="mt-3"> <input type="number" min="0" step="1"  className="form-control" style={{width: "85px", fontSize:"1.2em"}} onChange={(e) => {
+                                    if(!e.target.value) return
+                                    console.log(id, e.target.value)
+                                    fetch(`/api/illusionist/${id}/update-max-count/${e.target.value}`)
+                                }} /></div>
                             </div>
                             <div className="card-body ">
 
